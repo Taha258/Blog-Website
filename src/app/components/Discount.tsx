@@ -1,5 +1,5 @@
 import React from 'react'
-import LottieAnimation from './LottieAnimation';
+// import LottieAnimation from './LottieAnimation';
 
 export default function Discount() {
   return (
@@ -9,7 +9,7 @@ export default function Discount() {
            {/* Left */}
            <div className='basis-[50%] bg-pink flex justify-center items-center'>
             <div className='bg-[#283b60] h-[250px] rounded-md'>
-            <LottieAnimation/>
+            {/* <LottieAnimation/> */}
             </div>
            </div>{/* End Left */}
             {/* Right */}
