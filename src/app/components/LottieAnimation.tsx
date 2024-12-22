@@ -7,6 +7,11 @@ const LottieAnimation = () => {
   const lottieRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      // Ensure the code only runs in the browser
+      return;
+    }
+
     let animationInstance: AnimationItem | null = null;
 
     if (lottieRef.current) {
