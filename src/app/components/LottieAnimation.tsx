@@ -1,14 +1,16 @@
 'use client';
 
-import Lottie from 'lottie-web';
+import Lottie, { AnimationItem } from 'lottie-web';
 import { useEffect, useRef } from 'react';
 
 const LottieAnimation = () => {
   const lottieRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    let animationInstance: AnimationItem | null = null;
+
     if (lottieRef.current) {
-      Lottie.loadAnimation({
+      animationInstance = Lottie.loadAnimation({
         container: lottieRef.current, // Reference to container div
         renderer: 'svg', // SVG rendering
         loop: true, // Loop the animation
@@ -19,8 +21,8 @@ const LottieAnimation = () => {
 
     // Cleanup on unmount
     return () => {
-      if (lottieRef.current) {
-        Lottie.destroy();
+      if (animationInstance) {
+        animationInstance.destroy(); // Properly destroy the animation instance
       }
     };
   }, []);
